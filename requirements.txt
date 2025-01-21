@@ -1,0 +1,6 @@
+composer == 2.8.4
+php == 8.4.3
+npm == 8.19.2
+node == 18.12.0
+laravel == 11.6.0
+react-beautiful-dnd == 13.1.1
