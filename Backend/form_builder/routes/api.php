@@ -3,8 +3,9 @@
 use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/forms', [FormController::class, 'saveForm']);
-Route::get('/forms', [FormController::class, 'getForms']);
-Route::get('/forms/{id}', [FormController::class, 'getForm']);
-Route::put('/forms/{id}', [FormController::class, 'updateForm']);
-Route::delete('/forms/{id}', [FormController::class, 'deleteForm']);
+Route::middleware('auth')->group(function () {
+    Route::get('/forms/{id}', [FormController::class, 'fetch']);
+    Route::put('/forms/update/{id}', [FormController::class, 'update']);
+    Route::get('/forms/list', [FormController::class, 'list']);
+    Route::post('/forms/save', [FormController::class, 'save']);
+});

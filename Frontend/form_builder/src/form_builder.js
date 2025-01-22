@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import { fetchForm, updateForm, fetchAllForms, saveForm } from './api';
 
 const initialFields = [
   { id: "field-1", label: "Text Input", type: "text", placeholder: "Enter text", required: false, maxLength: "", minLength: "" },
@@ -21,8 +22,17 @@ const FormBuilder = () => {
   const [fields, setFields] = useState(initialFields);
   const [containerFields, setContainerFields] = useState([]);
   const [selectedField, setSelectedField] = useState(null);
+  const [formList, setFormList] = useState([]);
+  const [formId, setFormId] = useState(null);
 
   const inputRefs = useRef({});
+
+  // Fetch all forms on component mount
+  useEffect(() => {
+    fetchAllForms().then((forms) => {
+      setFormList(forms);
+    });
+  }, []);
 
   // Focus logic
   useEffect(() => {
@@ -35,8 +45,9 @@ const FormBuilder = () => {
         }
       }
     }
-  }, [selectedField]); // Only trigger focus when selectedField changes
+  }, [selectedField]);
 
+  // Handle drag end for fields
   const onDragEnd = (result) => {
     const { source, destination } = result;
     if (!destination) return;
@@ -65,6 +76,7 @@ const FormBuilder = () => {
     }
   };
 
+  // Update field in both fields and containerFields
   const handleFieldUpdate = (id, key, value) => {
     const updateFields = (fieldsList) =>
       fieldsList.map((field) =>
@@ -76,6 +88,7 @@ const FormBuilder = () => {
     setSelectedField((prev) => (prev?.id === id ? { ...prev, [key]: value } : prev));
   };
 
+  // Field editor component for updating a field
   const FieldEditor = ({ field }) => {
     const [localField, setLocalField] = useState(field);
 
@@ -200,6 +213,7 @@ const FormBuilder = () => {
     );
   };
 
+  // Floating Label Field Component
   const FloatingLabelField = React.forwardRef(({ field, onClick }, ref) => {
     return (
       <div style={{ position: "relative", marginBottom: "20px" }}>
@@ -242,90 +256,118 @@ const FormBuilder = () => {
     );
   });
 
+  // Handle form submission
+  const handleSubmit = () => {
+    const formData = containerFields.reduce((acc, field) => {
+      const fieldElement = inputRefs.current[field.id];
+      if (fieldElement) {
+        acc[field.id] = fieldElement.value;
+      }
+      return acc;
+    }, {});
+
+    saveForm(formId, formData).then((response) => {
+      console.log("Form submitted successfully", response);
+    }).catch((error) => {
+      console.error("Error submitting form", error);
+    });
+  };
+
   return (
-    <div>
-      <h2>Form Builder</h2>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+      <h2 style={{ textAlign: "center" }}>Form Builder</h2>
+      
+      {/* Fetch and display all forms */}
+      <div>
+        <h3>Select Form to Edit</h3>
+        <select onChange={(e) => setFormId(e.target.value)} value={formId}>
+          <option value="">-- Select a form --</option>
+          {formList.map((form) => (
+            <option key={form.id} value={form.id}>
+              {form.name}
+            </option>
+          ))}
+        </select>
+      </div>
+      
       <DragDropContext onDragEnd={onDragEnd}>
-        <Droppable droppableId="fields">
-          {(provided) => (
-            <div
-              ref={provided.innerRef}
-              style={{ padding: "10px", backgroundColor: "#f4f4f4", borderRadius: "5px" }}
-            >
-              {fields.map((field, index) => (
-                <Draggable key={field.id} draggableId={field.id} index={index}>
-                  {(provided) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      style={{
-                        ...provided.draggableProps.style,
-                        margin: "10px 0",
-                        padding: "10px",
-                        backgroundColor: "#fff",
-                        borderRadius: "5px",
-                        border: "1px solid #ddd",
-                      }}
-                    >
+        <div style={{ display: "flex", justifyContent: "space-between", width: "80%", margin: "20px 0" }}>
+          <Droppable droppableId="fields">
+            {(provided) => (
+              <div
+                ref={provided.innerRef}
+                style={{ padding: "10px", backgroundColor: "#f4f4f4", borderRadius: "5px", width: "45%" }}
+              >
+                {fields.map((field, index) => (
+                  <Draggable key={field.id} draggableId={field.id} index={index}>
+                    {(provided) => (
                       <div
-                        onClick={() => setSelectedField(field)}
-                        style={{ cursor: "pointer", marginBottom: "10px" }}
-                      >
-                        {field.label}
-                      </div>
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
-        <Droppable droppableId="container">
-          {(provided) => (
-            <div
-              ref={provided.innerRef}
-              style={{ padding: "10px", backgroundColor: "#e9e9e9", borderRadius: "5px" }}
-            >
-              {containerFields.map((field, index) => (
-                <Draggable key={field.id} draggableId={field.id} index={index}>
-                  {(provided) => (
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      style={{
-                        ...provided.draggableProps.style,
-                        margin: "10px 0",
-                        padding: "10px",
-                        backgroundColor: "#fff",
-                        borderRadius: "5px",
-                        border: "1px solid #ddd",
-                      }}
-                    >
-                      <FloatingLabelField
-                        ref={(ref) => {
-                          if (field.id === selectedField?.id) {
-                            inputRefs.current[field.id] = ref;
-                          }
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        style={{
+                          ...provided.draggableProps.style,
+                          marginBottom: "10px",
+                          padding: "10px",
+                          backgroundColor: "#fff",
+                          border: "1px solid #ddd",
+                          borderRadius: "5px",
                         }}
-                        field={field}
-                        onClick={() => setSelectedField(field)}
-                      />
-                    </div>
-                  )}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </div>
-          )}
-        </Droppable>
+                      >
+                        <div>{field.label}</div>
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+
+          {/* Fields inside the form */}
+          <Droppable droppableId="container">
+            {(provided) => (
+              <div
+                ref={provided.innerRef}
+                style={{ padding: "10px", backgroundColor: "#f4f4f4", borderRadius: "5px", width: "45%" }}
+              >
+                {containerFields.map((field, index) => (
+                  <Draggable key={field.id} draggableId={field.id} index={index}>
+                    {(provided) => (
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        style={{
+                          ...provided.draggableProps.style,
+                          marginBottom: "10px",
+                          padding: "10px",
+                          backgroundColor: "#fff",
+                          border: "1px solid #ddd",
+                          borderRadius: "5px",
+                        }}
+                      >
+                        <FloatingLabelField
+                          ref={(el) => (inputRefs.current[field.id] = el)}
+                          field={field}
+                          onClick={() => setSelectedField(field)}
+                        />
+                      </div>
+                    )}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </div>
+            )}
+          </Droppable>
+        </div>
       </DragDropContext>
 
-      {selectedField && (
-        <FieldEditor field={selectedField} />
-      )}
+      {selectedField && <FieldEditor field={selectedField} />}
+      
+      <button onClick={handleSubmit} style={{ padding: "10px 20px", marginTop: "20px" }}>
+        Submit Form
+      </button>
     </div>
   );
 };

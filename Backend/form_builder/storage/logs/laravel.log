@@ -487,3 +487,223 @@
 #35 /Users/jimmy/FormBuilder/Backend/form_builder/artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
 #36 {main}
 "} 
+[2025-01-22 00:47:48] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:232)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(139): Illuminate\\Log\\LogManager->resolve('', NULL)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(126): Illuminate\\Log\\LogManager->get('')
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(701): Illuminate\\Log\\LogManager->driver()
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(380): Illuminate\\Log\\LogManager->error('array_merge(): ...', Array)
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(343): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable(Object(TypeError))
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(563): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(TypeError))
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(147): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(TypeError))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1193): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 /Users/jimmy/FormBuilder/Backend/form_builder/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#9 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/Users/jimmy/Fo...')
+#10 {main}
+"} 
+[2025-01-22 00:47:48] laravel.ERROR: array_merge(): Argument #2 must be of type array, int given {"exception":"[object] (TypeError(code: 0): array_merge(): Argument #2 must be of type array, int given at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:99)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(99): array_merge(Array, 1)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(77): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFile(Object(Illuminate\\Config\\Repository), 'cors', '/Users/jimmy/Fo...', Array)
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(38): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(319): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(187): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(171): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1193): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 /Users/jimmy/FormBuilder/Backend/form_builder/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#9 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/Users/jimmy/Fo...')
+#10 {main}
+"} 
+[2025-01-22 00:47:48] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:232)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(139): Illuminate\\Log\\LogManager->resolve('', NULL)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(126): Illuminate\\Log\\LogManager->get('')
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(701): Illuminate\\Log\\LogManager->driver()
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(380): Illuminate\\Log\\LogManager->error('array_merge(): ...', Array)
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(343): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable(Object(TypeError))
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(563): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(TypeError))
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(147): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(TypeError))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1193): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 /Users/jimmy/FormBuilder/Backend/form_builder/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#9 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/Users/jimmy/Fo...')
+#10 {main}
+"} 
+[2025-01-22 00:47:48] laravel.ERROR: array_merge(): Argument #2 must be of type array, int given {"exception":"[object] (TypeError(code: 0): array_merge(): Argument #2 must be of type array, int given at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:99)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(99): array_merge(Array, 1)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(77): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFile(Object(Illuminate\\Config\\Repository), 'cors', '/Users/jimmy/Fo...', Array)
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(38): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(319): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(187): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(171): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1193): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 /Users/jimmy/FormBuilder/Backend/form_builder/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#9 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/Users/jimmy/Fo...')
+#10 {main}
+"} 
+[2025-01-22 00:47:48] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:232)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(139): Illuminate\\Log\\LogManager->resolve('', NULL)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(126): Illuminate\\Log\\LogManager->get('')
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(701): Illuminate\\Log\\LogManager->driver()
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(380): Illuminate\\Log\\LogManager->error('array_merge(): ...', Array)
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(343): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable(Object(TypeError))
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(563): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(TypeError))
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(147): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(TypeError))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1193): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 /Users/jimmy/FormBuilder/Backend/form_builder/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#9 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/Users/jimmy/Fo...')
+#10 {main}
+"} 
+[2025-01-22 00:47:48] laravel.ERROR: array_merge(): Argument #2 must be of type array, int given {"exception":"[object] (TypeError(code: 0): array_merge(): Argument #2 must be of type array, int given at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:99)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(99): array_merge(Array, 1)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(77): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFile(Object(Illuminate\\Config\\Repository), 'cors', '/Users/jimmy/Fo...', Array)
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(38): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(319): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(187): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(171): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1193): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 /Users/jimmy/FormBuilder/Backend/form_builder/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#9 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/Users/jimmy/Fo...')
+#10 {main}
+"} 
+[2025-01-22 00:48:00] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:232)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(139): Illuminate\\Log\\LogManager->resolve('', NULL)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(126): Illuminate\\Log\\LogManager->get('')
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(701): Illuminate\\Log\\LogManager->driver()
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(380): Illuminate\\Log\\LogManager->error('array_merge(): ...', Array)
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(343): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable(Object(TypeError))
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(563): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(TypeError))
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(147): Illuminate\\Foundation\\Http\\Kernel->reportException(Object(TypeError))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1193): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 /Users/jimmy/FormBuilder/Backend/form_builder/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#9 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/Users/jimmy/Fo...')
+#10 {main}
+"} 
+[2025-01-22 00:48:00] laravel.ERROR: array_merge(): Argument #2 must be of type array, int given {"exception":"[object] (TypeError(code: 0): array_merge(): Argument #2 must be of type array, int given at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:99)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(99): array_merge(Array, 1)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(77): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFile(Object(Illuminate\\Config\\Repository), 'cors', '/Users/jimmy/Fo...', Array)
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(38): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(319): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(187): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(171): Illuminate\\Foundation\\Http\\Kernel->bootstrap()
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1193): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#8 /Users/jimmy/FormBuilder/Backend/form_builder/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#9 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/resources/server.php(23): require_once('/Users/jimmy/Fo...')
+#10 {main}
+"} 
+[2025-01-22 00:50:11] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:232)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(139): Illuminate\\Log\\LogManager->resolve('', NULL)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(126): Illuminate\\Log\\LogManager->get('')
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(701): Illuminate\\Log\\LogManager->driver()
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(380): Illuminate\\Log\\LogManager->error('array_merge(): ...', Array)
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(343): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable(Object(TypeError))
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(621): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(TypeError))
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(200): Illuminate\\Foundation\\Console\\Kernel->reportException(Object(TypeError))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1208): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Users/jimmy/FormBuilder/Backend/form_builder/artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#9 {main}
+"} 
+[2025-01-22 00:50:11] laravel.ERROR: array_merge(): Argument #2 must be of type array, int given {"exception":"[object] (TypeError(code: 0): array_merge(): Argument #2 must be of type array, int given at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:99)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(99): array_merge(Array, 1)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(77): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFile(Object(Illuminate\\Config\\Repository), 'cors', '/Users/jimmy/Fo...', Array)
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(38): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(319): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1208): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#8 {main}
+"} 
+[2025-01-22 00:51:22] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:232)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(139): Illuminate\\Log\\LogManager->resolve('', NULL)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(126): Illuminate\\Log\\LogManager->get('')
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(701): Illuminate\\Log\\LogManager->driver()
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(380): Illuminate\\Log\\LogManager->error('array_merge(): ...', Array)
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(343): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable(Object(TypeError))
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(621): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(TypeError))
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(200): Illuminate\\Foundation\\Console\\Kernel->reportException(Object(TypeError))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1208): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Users/jimmy/FormBuilder/Backend/form_builder/artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#9 {main}
+"} 
+[2025-01-22 00:51:22] laravel.ERROR: array_merge(): Argument #2 must be of type array, int given {"exception":"[object] (TypeError(code: 0): array_merge(): Argument #2 must be of type array, int given at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:99)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(99): array_merge(Array, 1)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(77): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFile(Object(Illuminate\\Config\\Repository), 'cors', '/Users/jimmy/Fo...', Array)
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(38): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(319): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1208): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#8 {main}
+"} 
+[2025-01-22 00:51:23] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:232)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(139): Illuminate\\Log\\LogManager->resolve('', NULL)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(126): Illuminate\\Log\\LogManager->get('')
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(701): Illuminate\\Log\\LogManager->driver()
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(380): Illuminate\\Log\\LogManager->error('array_merge(): ...', Array)
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(343): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable(Object(TypeError))
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(621): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(TypeError))
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(200): Illuminate\\Foundation\\Console\\Kernel->reportException(Object(TypeError))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1208): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Users/jimmy/FormBuilder/Backend/form_builder/artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#9 {main}
+"} 
+[2025-01-22 00:51:23] laravel.ERROR: array_merge(): Argument #2 must be of type array, int given {"exception":"[object] (TypeError(code: 0): array_merge(): Argument #2 must be of type array, int given at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:99)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(99): array_merge(Array, 1)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(77): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFile(Object(Illuminate\\Config\\Repository), 'cors', '/Users/jimmy/Fo...', Array)
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(38): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(319): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1208): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#8 {main}
+"} 
+[2025-01-22 00:51:24] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php:232)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(139): Illuminate\\Log\\LogManager->resolve('', NULL)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(126): Illuminate\\Log\\LogManager->get('')
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Log/LogManager.php(701): Illuminate\\Log\\LogManager->driver()
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(380): Illuminate\\Log\\LogManager->error('array_merge(): ...', Array)
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(343): Illuminate\\Foundation\\Exceptions\\Handler->reportThrowable(Object(TypeError))
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(621): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(TypeError))
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(200): Illuminate\\Foundation\\Console\\Kernel->reportException(Object(TypeError))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1208): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 /Users/jimmy/FormBuilder/Backend/form_builder/artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#9 {main}
+"} 
+[2025-01-22 00:51:24] laravel.ERROR: array_merge(): Argument #2 must be of type array, int given {"exception":"[object] (TypeError(code: 0): array_merge(): Argument #2 must be of type array, int given at /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php:99)
+[stacktrace]
+#0 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(99): array_merge(Array, 1)
+#1 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(77): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFile(Object(Illuminate\\Config\\Repository), 'cors', '/Users/jimmy/Fo...', Array)
+#2 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/LoadConfiguration.php(38): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#3 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(319): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#4 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(474): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#5 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(196): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#6 /Users/jimmy/FormBuilder/Backend/form_builder/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1208): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#7 /Users/jimmy/FormBuilder/Backend/form_builder/artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#8 {main}
+"} 
+[2025-01-22 01:18:01] local.ERROR: Cannot redeclare class App\Providers\RouteServiceProvider (previously declared in /Users/jimmy/FormBuilder/Backend/form_builder/app/Providers/AppServiceProvider.php:8) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare class App\\Providers\\RouteServiceProvider (previously declared in /Users/jimmy/FormBuilder/Backend/form_builder/app/Providers/AppServiceProvider.php:8) at /Users/jimmy/FormBuilder/Backend/form_builder/app/Providers/AppServiceProvider.php:8)
+[stacktrace]
+#0 {main}
+"} 
+[2025-01-22 01:18:01] local.ERROR: Cannot redeclare class App\Providers\RouteServiceProvider (previously declared in /Users/jimmy/FormBuilder/Backend/form_builder/app/Providers/AppServiceProvider.php:8) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare class App\\Providers\\RouteServiceProvider (previously declared in /Users/jimmy/FormBuilder/Backend/form_builder/app/Providers/AppServiceProvider.php:8) at /Users/jimmy/FormBuilder/Backend/form_builder/app/Providers/AppServiceProvider.php:8)
+[stacktrace]
+#0 {main}
+"} 

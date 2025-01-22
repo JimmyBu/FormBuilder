@@ -3,52 +3,50 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use App\Models\Form; // Assuming you have a Form model
 
 class FormController extends Controller
 {
-    // Handle saving form data
-    public function saveForm(Request $request)
+    // Fetch a form by ID
+    public function fetch($id)
     {
-        // Validate the form data
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'fields' => 'required|array',
-        ]);
-
-        // Get form data from the request
-        $formData = $request->only(['title', 'fields']);
-        
-        // Fetch the existing forms from the JSON file (if any)
-        $forms = [];
-        $path = storage_path('app/forms.json'); // Path to the JSON file
-
-        if (file_exists($path)) {
-            $forms = json_decode(file_get_contents($path), true);
+        $form = Form::find($id);
+        if (!$form) {
+            return response()->json(['error' => 'Form not found'], 404);
         }
-
-        // Add the new form to the list
-        $forms[] = $formData;
-
-        // Save the updated forms back to the JSON file
-        file_put_contents($path, json_encode($forms, JSON_PRETTY_PRINT));
-
-        // Respond with a success message
-        return response()->json(['status' => 'success', 'message' => 'Form saved successfully!']);
+        return response()->json($form);
     }
 
-    // Get all saved forms
-    public function getForms()
+    // Update a form by ID
+    public function update(Request $request, $id)
     {
-        // Define the path to the saved forms file
-        $path = storage_path('app/forms.json');
-
-        if (file_exists($path)) {
-            // Read the JSON file and return its content
-            $forms = json_decode(file_get_contents($path), true);
-            return response()->json($forms);
+        $form = Form::find($id);
+        if (!$form) {
+            return response()->json(['error' => 'Form not found'], 404);
         }
 
-        return response()->json(['status' => 'error', 'message' => 'No forms found.']);
+        $form->form_name = $request->input('form_name', $form->form_name);
+        $form->form_data = $request->input('form_data', $form->form_data);
+        $form->save();
+
+        return response()->json($form);
+    }
+
+    // Get all forms
+    public function list()
+    {
+        $forms = Form::all();
+        return response()->json($forms);
+    }
+
+    // Save a new form
+    public function save(Request $request)
+    {
+        $form = new Form();
+        $form->form_name = $request->input('form_name');
+        $form->form_data = $request->input('form_data');
+        $form->save();
+
+        return response()->json($form, 201);
     }
 }
