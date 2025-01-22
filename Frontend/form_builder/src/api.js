@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'http://127.0.0.1:8000/api';
+console.log("Fetching data from:", API_URL);
 
 // Function to fetch all forms
 export const fetchAllForms = async () => {
@@ -27,7 +28,7 @@ export const fetchForm = async (formId) => {
 // Function to save a form
 export const saveForm = async (formId, formData) => {
   try {
-    const response = await axios.post(`${API_URL}/forms/${formId}/submit`, formData);
+    const response = await axios.post(`${API_URL}/forms/save`, formData);
     return response.data;
   } catch (error) {
     console.error("Error saving form:", error);
@@ -38,7 +39,7 @@ export const saveForm = async (formId, formData) => {
 // Function to update a form
 export const updateForm = async (formId, formData) => {
   try {
-    const response = await axios.put(`${API_URL}/forms/${formId}`, formData);
+    const response = await axios.put(`${API_URL}/forms/update/${formId}`, formData);
     return response.data;
   } catch (error) {
     console.error("Error updating form:", error);

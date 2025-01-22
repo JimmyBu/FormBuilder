@@ -42,11 +42,16 @@ class FormController extends Controller
     // Save a new form
     public function save(Request $request)
     {
+        $validatedData = $request->validate([
+            'form_name' => 'required|string',
+            'form_data' => 'required|array',
+        ]);
+
         $form = new Form();
-        $form->form_name = $request->input('form_name');
-        $form->form_data = $request->input('form_data');
+        $form->form_name = $validatedData['form_name'];
+        $form->form_data = json_encode($validatedData['form_data']);
         $form->save();
 
-        return response()->json($form, 201);
+        return response()->json(['message' => 'Form submitted successfully']);
     }
 }

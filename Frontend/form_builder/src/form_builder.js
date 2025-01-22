@@ -38,11 +38,8 @@ const FormBuilder = () => {
   useEffect(() => {
     if (selectedField) {
       const inputElement = inputRefs.current[selectedField.id];
-      if (inputElement) {
-        // Ensuring that we focus the input only if it's not already focused
-        if (document.activeElement !== inputElement) {
-          inputElement.focus();
-        }
+      if (inputElement && document.activeElement !== inputElement) {
+        inputElement.focus();
       }
     }
   }, [selectedField]);
@@ -215,28 +212,150 @@ const FormBuilder = () => {
 
   // Floating Label Field Component
   const FloatingLabelField = React.forwardRef(({ field, onClick }, ref) => {
+    const inputRef = useRef(null);
+  
+    useEffect(() => {
+      inputRefs.current[field.id] = inputRef.current;
+      console.log("Field reference updated:", field.id);
+    }, [field.id]);
+  
+    const renderInput = () => {
+      switch (field.type) {
+        case "text":
+        case "textarea":
+          return (
+            <input
+              ref={inputRef}
+              id={field.id}
+              type={field.type}
+              placeholder={field.placeholder}
+              required={field.required}
+              maxLength={field.maxLength}
+              minLength={field.minLength}
+              onClick={onClick}
+              className="input-field"
+              style={{
+                padding: "10px",
+                width: "100%",
+                minWidth: "200px",
+                transition: "all 0.2s",
+                border: "1px solid #ccc",
+                borderRadius: "4px",
+                fontSize: "16px",
+              }}
+            />
+          );
+  
+        case "select":
+          return (
+            <select
+              ref={inputRef}
+              id={field.id}
+              required={field.required}
+              onClick={onClick}
+              style={{
+                padding: "10px",
+                width: "100%",
+                minWidth: "200px",
+                transition: "all 0.2s",
+                border: "1px solid #ccc",
+                borderRadius: "4px",
+                fontSize: "16px",
+              }}
+            >
+              {field.options?.map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          );
+  
+        case "checkbox":
+          return (
+            <input
+              ref={inputRef}
+              id={field.id}
+              type="checkbox"
+              required={field.required}
+              onClick={onClick}
+              style={{
+                width: "20px",
+                height: "20px",
+                border: "1px solid #ccc",
+              }}
+            />
+          );
+  
+        case "radio":
+          return (
+            <div>
+              {field.options?.map((option, index) => (
+                <label key={index}>
+                  <input
+                    ref={inputRef}
+                    type="radio"
+                    name={field.id}
+                    value={option}
+                    required={field.required}
+                    onClick={onClick}
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      marginRight: "10px",
+                    }}
+                  />
+                  {option}
+                </label>
+              ))}
+            </div>
+          );
+  
+        case "date":
+          return (
+            <input
+              ref={inputRef}
+              id={field.id}
+              type="date"
+              required={field.required}
+              onClick={onClick}
+              style={{
+                padding: "10px",
+                width: "100%",
+                minWidth: "200px",
+                transition: "all 0.2s",
+                border: "1px solid #ccc",
+                borderRadius: "4px",
+                fontSize: "16px",
+              }}
+            />
+          );
+  
+        case "file":
+          return (
+            <input
+              ref={inputRef}
+              id={field.id}
+              type="file"
+              required={field.required}
+              onClick={onClick}
+              style={{
+                width: "100%",
+                padding: "10px",
+                border: "1px solid #ccc",
+                borderRadius: "4px",
+              }}
+            />
+          );
+  
+        default:
+          return null;
+      }
+    };
+  
     return (
       <div style={{ position: "relative", marginBottom: "20px" }}>
-        <input
-          ref={ref}
-          id={field.id}
-          type={field.type}
-          placeholder={field.placeholder}
-          required={field.required}
-          maxLength={field.maxLength}
-          minLength={field.minLength}
-          onClick={onClick}
-          className="input-field"
-          style={{
-            padding: "10px",
-            width: "100%",
-            minWidth: "200px",
-            transition: "all 0.2s",
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            fontSize: "16px",
-          }}
-        />
+        {renderInput()}
         <label
           htmlFor={field.id}
           style={{
@@ -254,50 +373,95 @@ const FormBuilder = () => {
         </label>
       </div>
     );
-  });
+  });  
 
   // Handle form submission
+  const [formName, setFormName] = useState("");
   const handleSubmit = () => {
     const formData = containerFields.reduce((acc, field) => {
       const fieldElement = inputRefs.current[field.id];
+      console.log("Container fields just before submission:", containerFields);
+      console.log(`Field ${field.id} value:`, fieldElement);
+      console.log(inputRefs.current)
       if (fieldElement) {
         acc[field.id] = fieldElement.value;
       }
       return acc;
     }, {});
-
-    saveForm(formId, formData).then((response) => {
+  
+    const payload = {
+      form_name: formName,
+      form_data: formData,
+    };
+  
+    saveForm(formId, payload).then((response) => {
       console.log("Form submitted successfully", response);
     }).catch((error) => {
+      console.log("Form data being submitted:", formData);
       console.error("Error submitting form", error);
     });
   };
+  
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-      <h2 style={{ textAlign: "center" }}>Form Builder</h2>
-      
-      {/* Fetch and display all forms */}
-      <div>
-        <h3>Select Form to Edit</h3>
-        <select onChange={(e) => setFormId(e.target.value)} value={formId}>
-          <option value="">-- Select a form --</option>
-          {formList.map((form) => (
-            <option key={form.id} value={form.id}>
-              {form.name}
-            </option>
-          ))}
-        </select>
-      </div>
-      
-      <DragDropContext onDragEnd={onDragEnd}>
-        <div style={{ display: "flex", justifyContent: "space-between", width: "80%", margin: "20px 0" }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "20px" }}>
+      <h2>Form Builder</h2>
+      <input
+        type="text"
+        value={formName}
+        onChange={(e) => setFormName(e.target.value)}
+        placeholder="Enter Form Name"
+        style={{
+          padding: "10px",
+          width: "100%",
+          maxWidth: "400px",
+          marginBottom: "20px",
+          borderRadius: "4px",
+          border: "1px solid #ccc",
+          fontSize: "16px",
+        }}
+      />
+  
+      <select
+        value={formId}
+        onChange={(e) => {
+          const selectedForm = formList.find((form) => form.id === e.target.value);
+          setFormId(selectedForm?.id);
+          setContainerFields(selectedForm?.form_data || []);
+        }}
+        style={{
+          padding: "10px",
+          width: "100%",
+          maxWidth: "400px",
+          marginBottom: "20px",
+          borderRadius: "4px",
+          border: "1px solid #ccc",
+          fontSize: "16px",
+        }}
+      >
+        <option value="">Select Form</option>
+        {formList.map((form) => (
+          <option key={form.id} value={form.id}>
+            {form.form_name}
+          </option>
+        ))}
+      </select>
+  
+      <div style={{ display: "flex", width: "100%", justifyContent: "space-between" }}>
+        <DragDropContext onDragEnd={onDragEnd}>
           <Droppable droppableId="fields">
             {(provided) => (
               <div
                 ref={provided.innerRef}
-                style={{ padding: "10px", backgroundColor: "#f4f4f4", borderRadius: "5px", width: "45%" }}
+                {...provided.droppableProps}
+                style={{
+                  width: "45%",
+                  minHeight: "400px",
+                  border: "1px solid #ddd",
+                  padding: "10px",
+                }}
               >
+                <h3>Available Fields</h3>
                 {fields.map((field, index) => (
                   <Draggable key={field.id} draggableId={field.id} index={index}>
                     {(provided) => (
@@ -307,14 +471,15 @@ const FormBuilder = () => {
                         {...provided.dragHandleProps}
                         style={{
                           ...provided.draggableProps.style,
-                          marginBottom: "10px",
                           padding: "10px",
-                          backgroundColor: "#fff",
-                          border: "1px solid #ddd",
-                          borderRadius: "5px",
+                          margin: "10px 0",
+                          background: "#f9f9f9",
+                          border: "1px solid #ccc",
+                          borderRadius: "4px",
+                          cursor: "move",
                         }}
                       >
-                        <div>{field.label}</div>
+                        {field.label}
                       </div>
                     )}
                   </Draggable>
@@ -323,14 +488,20 @@ const FormBuilder = () => {
               </div>
             )}
           </Droppable>
-
-          {/* Fields inside the form */}
+  
           <Droppable droppableId="container">
             {(provided) => (
               <div
                 ref={provided.innerRef}
-                style={{ padding: "10px", backgroundColor: "#f4f4f4", borderRadius: "5px", width: "45%" }}
+                {...provided.droppableProps}
+                style={{
+                  width: "45%",
+                  minHeight: "400px",
+                  border: "1px solid #ddd",
+                  padding: "10px",
+                }}
               >
+                <h3>Form Builder</h3>
                 {containerFields.map((field, index) => (
                   <Draggable key={field.id} draggableId={field.id} index={index}>
                     {(provided) => (
@@ -338,20 +509,18 @@ const FormBuilder = () => {
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
+                        onClick={() => setSelectedField(field)}
                         style={{
                           ...provided.draggableProps.style,
-                          marginBottom: "10px",
                           padding: "10px",
-                          backgroundColor: "#fff",
-                          border: "1px solid #ddd",
-                          borderRadius: "5px",
+                          margin: "10px 0",
+                          background: "#f9f9f9",
+                          border: "1px solid #ccc",
+                          borderRadius: "4px",
+                          cursor: "pointer",
                         }}
                       >
-                        <FloatingLabelField
-                          ref={(el) => (inputRefs.current[field.id] = el)}
-                          field={field}
-                          onClick={() => setSelectedField(field)}
-                        />
+                        {field.label}
                       </div>
                     )}
                   </Draggable>
@@ -360,11 +529,11 @@ const FormBuilder = () => {
               </div>
             )}
           </Droppable>
-        </div>
-      </DragDropContext>
-
+        </DragDropContext>
+      </div>
+  
       {selectedField && <FieldEditor field={selectedField} />}
-      
+  
       <button onClick={handleSubmit} style={{ padding: "10px 20px", marginTop: "20px" }}>
         Submit Form
       </button>
